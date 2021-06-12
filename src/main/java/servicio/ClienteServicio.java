@@ -7,13 +7,15 @@ import modelo.Cliente;
 
 public interface ClienteServicio {
 	
-	public List<Cliente> getListaClientes();
+	List<Cliente> getListaClientes();
 	
-	public void agregarCliente(Cliente cliente);
+	void setListaClientes(List<Cliente> listaClientes);
 	
-	public List<Cliente> retornoListarClientes();
+	void agregarCliente(Cliente cliente);
 	
-	public void editarCliente(String run, ArrayList<String> arrDatosModificar);
+	List<Cliente> retornoListarClientes();
 	
-	public Cliente retornaCliente(String run);
+	void editarCliente(String run, ArrayList<String> arrDatosModificar);
+	
+	Cliente retornaCliente(String run);
 }

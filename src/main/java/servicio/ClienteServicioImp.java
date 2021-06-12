@@ -14,6 +14,11 @@ public class ClienteServicioImp implements ClienteServicio {
 	public List<Cliente> getListaClientes() {
 		return listaClientes;
 	}
+	
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
 
 	@Override
 	public void agregarCliente(Cliente cliente) {
@@ -72,6 +77,7 @@ public class ClienteServicioImp implements ClienteServicio {
 		}
 
 	}
+
 
 	@Override
 	public Cliente retornaCliente(String run) {

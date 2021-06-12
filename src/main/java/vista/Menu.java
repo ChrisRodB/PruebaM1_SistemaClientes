@@ -5,6 +5,7 @@ import java.util.List;
 
 import modelo.CategoriaEnum;
 import modelo.Cliente;
+import servicio.ArchivoServicio;
 import servicio.ClienteServicio;
 import servicio.ClienteServicioImp;
 import servicio.ExportadorCsv;
@@ -14,7 +15,7 @@ public class Menu extends MenuTemplate {
 	
 	//private Utilidad utilidad;
 	private ClienteServicio clienteServicio = new ClienteServicioImp();
-	//private ArchivoServicio archivoServicio;
+	private ArchivoServicio archivoServicio =  new ArchivoServicio();
 	private ExportadorCsv exportadorCsv =  new ExportadorCsv();
 	private ExportadorTxt exportadorTxt =  new ExportadorTxt();
 
@@ -154,8 +155,16 @@ public class Menu extends MenuTemplate {
 
 	@Override
 	public void importarCliente() {
-		// TODO Auto-generated method stub
-
+		System.out.print("Ingresa la ruta en donde se encuentra el archivo \"DBClientes.csv\": ");
+		String ruta = scanner.nextLine();
+		
+		List<Cliente> listaCliente = archivoServicio.cargarDatos(ruta + "/DBClientes.csv", clienteServicio.getListaClientes());
+		//??????????? VERIFICAR EL SET YA QUE INCIALIZA TODA LA LISTA
+		if(listaCliente!=null) {
+			listaCliente.forEach(c -> clienteServicio.agregarCliente(c));
+			//clienteServicio.setListaClientes(listaCliente);
+		}
+		System.out.println("Datos cargados correctamente en la lista.");
 	}
 
 	@Override
@@ -169,7 +178,7 @@ public class Menu extends MenuTemplate {
 			String opcion = scanner.nextLine();
 			switch(opcion) {
 			case "1":
-				System.out.print("Ingrese la ruta en donde desea exportar el archivo \"Clientes.csv\": ");
+				System.out.print("Ingrese la ruta en donde desea exportar el archivo \"Clientes.csv\" : ");
 				ruta = scanner.nextLine();
 				exportadorCsv.exportar(ruta + "/Clientes.csv", clienteServicio.getListaClientes());
 				System.out.println("Datos de clientes exportados correctamente en formato csv.");

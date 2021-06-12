@@ -16,12 +16,13 @@ public class ExportadorCsv extends Exportador {
 			listaClientes.stream().forEach(c -> {
 				try {
 					bw.write(c.getRunCliente() + "," + c.getNombreCliente() + "," + c.getApellidoCliente() + ","
-							+ c.getAniosCliente() + "," + c.getNombreCategoria().name());
+							+ c.getAniosCliente() + "," + c.getNombreCategoria().name() + "\n");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 
 			});
+			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

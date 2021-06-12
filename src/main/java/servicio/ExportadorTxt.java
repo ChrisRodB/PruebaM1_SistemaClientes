@@ -15,20 +15,18 @@ public class ExportadorTxt extends Exportador {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
 			listaClientes.stream().forEach(c -> {
 				try {
-					bw.write("--------------------Datos del Cliente--------------------");
-					bw.newLine();
-					bw.write("RUN del Cliente: " + c.getRunCliente());
-					bw.write("Nombre del Cliente: " + c.getNombreCliente());
-					bw.write("Apellido del Cliente: " + c.getApellidoCliente());
-					bw.write("Años como Cliente: " + c.getAniosCliente());
-					bw.write("Categoria del Cliente: " + c.getNombreCategoria().name());
-					bw.newLine();
-					bw.write("---------------------------------------------------------");
+					bw.write("--------------------Datos del Cliente--------------------\n\n");
+					bw.write("RUN del Cliente: " + c.getRunCliente() + "\n");
+					bw.write("Nombre del Cliente: " + c.getNombreCliente() + "\n");
+					bw.write("Apellido del Cliente: " + c.getApellidoCliente() + "\n");
+					bw.write("Años como Cliente: " + c.getAniosCliente() + "\n");
+					bw.write("Categoria del Cliente: " + c.getNombreCategoria().name() + "\n\n");
+					bw.write("---------------------------------------------------------\n");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
 			});
+			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
