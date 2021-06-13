@@ -1,4 +1,9 @@
 package servicio;
+/**
+ * @author Christian Rodríguez Bugueño
+ * @category Prueba módulo 1 - Clase 003
+ * @version 1.0
+ */
 
 import java.util.ArrayList;
 import java.util.List;

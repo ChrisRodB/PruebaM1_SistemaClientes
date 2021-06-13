@@ -1,6 +1,12 @@
 package servicio;
+/**
+ * @author Christian Rodríguez Bugueño
+ * @category Prueba módulo 1 - Clase 003
+ * @version 1.0
+ */
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,25 +15,30 @@ import java.util.List;
 
 import modelo.CategoriaEnum;
 import modelo.Cliente;
+import utilidad.Utilidad;
 
 /*						IMPORTANTE!!!
- * La clase ArchivoServicio se extendió desde Exportador según se solicitó en el documento de la prueba
+ * La clase ArchivoServicio se extendió desde Exportador según se solicitó en el documento de la prueba.
  * Ahora, no tiene ninguna coherencia realizarlo ya que esta clase corresponde a la carga de datos y no
- * a la exportación de información. De todas formas se heredó desde la clase Exportador tal cual se pidió.
+ * a la exportación de información. De todas formas se heredó desde la clase Exportador tal cual se pidió
+ * para cumplir con el requerimiento.
  */
 public class ArchivoServicio extends Exportador {
-
+	
 	@Override
-	public void exportar(String fileName, List<Cliente> listaClientes) {
-		
+	public boolean exportar(String ruta, String fileName, List<Cliente> listaClientes) {
+		return true;
 	}
 	
-	public List<Cliente> cargarDatos(String fileName, List<Cliente> listaActualClientes) {
+	
+	public List<Cliente> cargarDatos(String ruta, String fileName, List<Cliente> listaActualClientes) {
 		List<Cliente> listaClientes = new ArrayList<Cliente>();
+		String strDirFile = ruta.isEmpty() ? null : ruta;
+		
 		try {
 			String noCargados = "";
-			
-			BufferedReader bR = new BufferedReader(new FileReader(fileName));
+			File fArchivo = new File(strDirFile, fileName);
+			BufferedReader bR = new BufferedReader(new FileReader(fArchivo));
 			String lineas;
 			while((lineas=bR.readLine()) != null) {
 				String[] datosCliente = lineas.split(",");
@@ -44,14 +55,13 @@ public class ArchivoServicio extends Exportador {
 				}
 			}
 			if (!noCargados.isEmpty()) {
-				System.out.println("Los siguientes registros no fueron cargados: ");
-				System.out.println(noCargados);
+				Utilidad.imprimeConsolaConTitulo("Registros NO cargados", noCargados, true, 1, 2000);
 			}
 			bR.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Utilidad.imprimeConsolaConTitulo("------Error------", "Se produjo un error.\n" + e.getLocalizedMessage(), true, 1, 2000);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Utilidad.imprimeConsolaConTitulo("------Error------", "Se produjo un error.\n" + e.getLocalizedMessage(), true, 1, 2000);
 		}
 	
 		return listaClientes;

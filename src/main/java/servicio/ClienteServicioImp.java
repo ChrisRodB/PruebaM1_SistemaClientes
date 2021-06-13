@@ -1,10 +1,16 @@
 package servicio;
+/**
+ * @author Christian Rodríguez Bugueño
+ * @category Prueba módulo 1 - Clase 003
+ * @version 1.0
+ */
 
 import java.util.ArrayList;
 import java.util.List;
 
 import modelo.CategoriaEnum;
 import modelo.Cliente;
+import utilidad.Utilidad;
 
 public class ClienteServicioImp implements ClienteServicio {
 
@@ -61,7 +67,7 @@ public class ClienteServicioImp implements ClienteServicio {
 				case "4": // Modificar Años
 					listaClientes.get(indexLista).setAniosCliente(datoModificar);
 					break;
-				case "5": // Modificar Categoría //???????????
+				case "5": // Modificar Categoría
 					if(datoModificar.equals("0")) {
 						listaClientes.get(indexLista).setNombreCategoria(CategoriaEnum.INACTIVO);
 					}else {
@@ -70,10 +76,10 @@ public class ClienteServicioImp implements ClienteServicio {
 					break;
 				}
 			} else {
-				System.out.println("No se han ingresado datos a modificar.");
+				Utilidad.imprimeConsolaConTitulo("------Error------", "No se han ingresado datos a modificar.", true, 1, 2000);
 			}
 		}else {
-			System.out.println("No existe RUN del cliente");
+			Utilidad.imprimeConsolaConTitulo("------Error------", "No existe RUN del cliente", true, 1, 2000);
 		}
 
 	}

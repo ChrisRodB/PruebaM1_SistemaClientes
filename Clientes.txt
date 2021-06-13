@@ -1,0 +1,60 @@
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 13050655-0
+Nombre del Cliente: Christian
+Apellido del Cliente: Pitt
+Años como Cliente: 7 años
+Categoría del Cliente: ACTIVO
+
+---------------------------------------------------------
+
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 13045728-2
+Nombre del Cliente: Patricia
+Apellido del Cliente: Chacon
+Años como Cliente: 3 años
+Categoría del Cliente: ACTIVO
+
+---------------------------------------------------------
+
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 22759240-0
+Nombre del Cliente: Sofía
+Apellido del Cliente: Rodriguez
+Años como Cliente: 1 años
+Categoría del Cliente: INACTIVO
+
+---------------------------------------------------------
+
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 12345678-8
+Nombre del Cliente: Juan
+Apellido del Cliente: Perez
+Años como Cliente: 12 años
+Categoría del Cliente: ACTIVO
+
+---------------------------------------------------------
+
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 11111111-1
+Nombre del Cliente: Camila
+Apellido del Cliente: Jolie
+Años como Cliente: 9 años
+Categoría del Cliente: INACTIVO
+
+---------------------------------------------------------
+
+--------------------Datos del Cliente--------------------
+
+RUN del Cliente: 1-9
+Nombre del Cliente: Pepito
+Apellido del Cliente: Pepon
+Años como Cliente: 2 años
+Categoría del Cliente: INACTIVO
+
+---------------------------------------------------------
+

@@ -1,6 +1,13 @@
 package vista;
+/**
+ * @author Christian Rodríguez Bugueño
+ * @category Prueba módulo 1 - Clase 003
+ * @version 1.0
+ */
 
 import java.util.Scanner;
+
+import utilidad.Utilidad;
 
 public abstract class MenuTemplate {
 
@@ -21,9 +28,8 @@ public abstract class MenuTemplate {
 	public final void iniciarMenu() {
 		String opcion="";
 		do {
-			System.out.println("1. Listar Clientes\n" + "2. Agregar Cliente\n" + "3. Editar Cliente\n" + "4. Cargar Datos\n"
-					+ "5. Exportar Datos\n" + "6. Salir\n");
-			System.out.print("Ingrese una opción: ");
+			Utilidad.imprimeConsolaConTitulo("SISTEMA DE CLIENTES", "1. Listar Clientes\n" + "2. Agregar Cliente\n" + "3. Editar Cliente\n" + "4. Cargar Datos\n"
+					+ "5. Exportar Datos\n" + "6. Salir\n\n" + "Ingrese una opción: ", false, 0, 0);
 			opcion = scanner.nextLine();
 
 			switch (opcion) {
@@ -46,7 +52,7 @@ public abstract class MenuTemplate {
 				terminarCliente();
 				break;
 			default:
-				System.out.println("Opción no válida.");
+				Utilidad.imprimeConsolaConTitulo("------Error------", "Opción no válida!", true, 1, 2000);
 			}
 		} while(opcion!="6");
 		
